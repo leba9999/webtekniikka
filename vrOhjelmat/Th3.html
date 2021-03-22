@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 3</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 3</h3>
+
+<script>
+    'use strict';
+
+    let sex = prompt('Syötä sukupuoli (m/n): ');
+    let hemo = +prompt('Syötä hemoglobiiniarvo  (g/l): ');
+    sex = sex.toLowerCase();
+    console.log("Sex:" + sex);
+    console.log("Hemoglobin:" + hemo);
+    if (sex === "mies" || sex === "m" || sex === "man" || sex === "uros"){
+        if (hemo < 134) {
+            alert("Hemoglobiini arvosi on alhainen.");
+            document.write("<br>Sukupuoli: Mies<br>Hemoglobiini: " + hemo + "<br>Tilanne: Alhainen");
+        }
+        else if (hemo > 195){
+            alert("Hemoglobiini arvosi on korkea.");
+            document.write("<br>Sukupuoli: Mies<br>Hemoglobiini: " + hemo + "<br>Tilanne: Korkea");
+        }
+        else {
+            alert("Hemoglobiini arvosi on normaali.");
+            document.write("<br>Sukupuoli: Mies<br>Hemoglobiini: " + hemo + "<br>Tilanne: Normaali");
+        }
+    }
+    else {
+        if (hemo < 117) {
+            alert("Hemoglobiini arvosi on alhainen.");
+            document.write("<br>Sukupuoli: Nainen<br>Hemoglobiini: " + hemo + "<br>Tilanne: Alhainen");
+        }
+        else if (hemo > 175){
+            alert("Hemoglobiini arvosi on korkea.");
+            document.write("<br>Sukupuoli: Nainen<br>Hemoglobiini: " + hemo + "<br>Tilanne: Korkea");
+        }
+        else {
+            alert("Hemoglobiini arvosi on normaali.");
+            document.write("<br>Sukupuoli: Nainen<br>Hemoglobiini: " + hemo + "<br>Tilanne: Normaali");
+        }
+    }
+</script>
+
+</body>
+</html>

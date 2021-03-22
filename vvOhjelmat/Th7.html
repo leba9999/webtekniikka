@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 7</title>
+</head>
+<body>
+<h3>Javascript Tehtävä 7</h3>
+
+<script>
+    'use strict';
+
+    let balance = +prompt('Tilin saldo: ');
+    let interest_rate = +prompt('Vuotuinen Korkoprosentti: ');
+    let interest = (balance * interest_rate * 1) / 100;
+
+    document.write("Vanha Saldo: " + balance);
+    document.write("<br>Vuosi Korko: " + Math.round(interest * 100) / 100);
+    document.write("<br>Nykyinen Saldo: " + Math.round((balance + +interest) * 100) / 100);
+
+    // Konsoleen muistiin jotta voi tarkistella pyöristyksiä
+    console.log("Saldo: " + balance);
+    console.log("Korkoprosentti: " + interest_rate);
+    console.log("Ei pyöristetty Korko: " + interest);
+    console.log("Ei pyöristetty Saldo: " + (balance + +interest));
+
+</script>
+
+</body>
+</html>

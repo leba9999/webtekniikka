@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 2</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 2</h3>
+
+<script>
+    'use strict';
+
+    let name = prompt('Syötä nimesi: ');
+    let randomHouse = Math.floor(Math.random() * 4);
+    console.log("House:" + randomHouse);
+    if (randomHouse === 0){
+        alert(name + " olet...\nROHKELIKKO!!!");
+        document.write("<br>Onneksi olkoon " + name + "!<br>Kuulut Rohkelikkoon!<br>");
+        document.body.style.backgroundColor = "#b01515";
+    }
+    else if (randomHouse === 1){
+        alert(name + " olet...\nKORPINKYNSI!!!");
+        document.write("<br>Onneksi olkoon " + name + "!<br>Kuulut Korpinkynteen!<br>");
+        document.body.style.backgroundColor = "#0088a8";
+    }
+    else if (randomHouse === 2){
+        alert(name + " olet...\nLUIHUINNE!!!");
+        document.write("<br>Onneksi olkoon " + name + "!<br>Kuulut Luihuiseen!<br>");
+        document.body.style.backgroundColor = "#009b00";
+    }
+    else {
+        alert(name + " olet...\nPUUSKUPUH!!!");
+        document.write("<br>Onneksi olkoon " + name + "!<br>Kuulut Puuskupuhiin!<br>");
+        document.body.style.backgroundColor = "#b8ae1e";
+    }
+    document.write("<br>Tutustu nyt muihin tupa tovereihisi!");
+</script>
+
+</body>
+</html>

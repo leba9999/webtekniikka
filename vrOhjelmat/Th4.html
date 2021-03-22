@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 4</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 4</h3>
+
+<script>
+    'use strict';
+
+    let balance = +prompt('Syötä lompakon rahamäärä: ');
+    let ticket = +prompt('Syötä bussilipun hinta: ');
+    if (ticket <= 0){
+        ticket = 2.50;
+    }
+    if (balance <= 0){
+        balance = 5.50;
+    }
+    console.log("balance:" + balance);
+    console.log("ticket:" + ticket);
+    if ((balance - ticket) >= 0 ){
+        alert("Rahat riittivät! Hyvää Matkaa!!");
+        document.write("<br>Ostos: Bussilippu<br>Hinta: " + ticket + "<br>Asiakaan varat: " + balance);
+        balance -= ticket;
+        document.write("<br>Lompakoon jäänyt summa: " + balance);
+        document.write("<br>TAPAHTUMA HYVÄKSYTTY!");
+        document.write("<br>Hyvää Matkaa!!");
+    }
+    else {
+        alert("Oijoi...\nRahasi eivät riitä bussilippuun.\nLiftaus taitaa olla ainut vaihtoehto");
+        document.write("<br>Ostos: Bussilippu<br>Hinta: " + ticket + "<br>Asiakaan varat: " + balance);
+        document.write("<br>Lompakoon jäänyt summa: " + balance);
+        document.write("<br>TAPAHTUMA HYLÄTTY!");
+        document.write("<br>Ei muutakuin liftaamaan!");
+    }
+</script>
+
+</body>
+</html>

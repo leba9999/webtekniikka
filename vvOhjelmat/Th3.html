@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 3</title>
+    <style>
+        canvas{
+            border-style: solid;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 3</h3>
+
+<canvas id="myCanvas" width="200" height="200"></canvas>
+
+<script>
+    'use strict';
+
+    let radius = +prompt('Syötä ympyrän säde: ');
+    let area  = 2*Math.PI*Math.pow(radius, 2);
+
+    document.write("<br>Ympyrän tiedot: <br> pinta-ala: " + area.toFixed(2));
+    document.write("<br> Halkaisija: " + 2*radius);
+    document.write("<br> Säde: " + radius);
+
+    // ympyrän piirto:
+    // https://www.w3schools.com/tags/canvas_arc.asp
+    let canvas = document.getElementById("myCanvas");
+    let canvasContext = canvas.getContext("2d");
+    canvasContext.beginPath();
+    canvasContext.arc(100, 100, radius, 0, 2 * Math.PI);
+    canvasContext.stroke();
+</script>
+
+</body>
+</html>

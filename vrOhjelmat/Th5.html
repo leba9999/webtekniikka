@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 5</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 5</h3>
+
+<script>
+    'use strict';
+    let confirmation = window.confirm("Lasketaanko neliöjuuri?")
+    if (confirmation){;
+        let value = +prompt('Syötä luku josta otetaan neliöjuuri: ');
+        if (value < 0){
+            alert("Negatiivisen luvun neliöjuuri ei ole määritelty");
+            console.log("Error: The square root of a negative number is not defined")
+        }
+        else {
+            let sqrtValue = Math.sqrt(value);
+            alert("Luvun " + value + " neliöjuuri: " + sqrtValue);
+            document.write("<br>Lukun " + value + "<br>Luvun neliöjuuri: " + sqrtValue);
+            console.log("square root of: " + value + " is " + sqrtValue);
+        }
+    }
+    else {
+        alert("Neliöjuurta ei lasketa.");
+        console.log("User clicked cancel: square root is not calculated");
+    }
+</script>
+
+</body>
+</html>

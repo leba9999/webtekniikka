@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 6</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 6</h3>
+
+<script>
+    'use strict';
+    let year = +prompt('Syötä vuosiluku: ');
+
+    if ((year % 100 != 0 || year % 400 == 0) && year % 4 == 0) {
+        alert("Vuosi " + year + " on karkausvuosi");
+        document.write("Vuosi " + year + " on karkausvuosi");
+    } else {
+        alert("Vuosi " + year + " ei ole karkausvuosi");
+        document.write("Vuosi " + year + " ei ole karkausvuosi.");
+    }
+    /* tai pidemmästi avattuna:
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    document.write("Vuosi on karkausvuosi.");
+                }
+                else {
+                    document.write("Vuosi ei ole karkausvuosi.");
+                }
+            }
+            else {
+                document.write("Vuosi on karkausvuosi.");
+            }
+        }
+        else {
+            document.write("Vuosi ei ole karkausvuosi.");
+        }
+     */
+</script>
+
+</body>
+</html>

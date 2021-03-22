@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 4</title>
+    <style>
+        canvas{
+            border-style: solid;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 4</h3>
+
+<canvas id="myCanvas" width="200" height="200"></canvas>
+
+<script>
+    'use strict';
+
+    let width = +prompt('Syötä suorakulmion kanta: ');
+    let height = +prompt('Syötä suorakulmion korkeus: ');
+    let area  = width*height;
+    let perimeter  = 2*width + 2*height;
+
+    document.write("<br>Suorakulmion tiedot: <br> pinta-ala: " + area.toFixed(2));
+    document.write("<br> Piiri: " + perimeter);
+
+    // suorakulmion piirto:
+    // https://www.w3schools.com/tags/canvas_rect.asp
+    // https://www.w3schools.com/tags/canvas_arc.asp
+    let canvas = document.getElementById("myCanvas");
+    let canvasContext = canvas.getContext("2d");
+    canvasContext.beginPath();
+    canvasContext.rect(100 - width / 2, 100 - height / 2, width, height);
+    canvasContext.stroke();
+
+</script>
+
+</body>
+</html>
