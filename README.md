@@ -8,3 +8,6 @@ vuorovaikutteisten ohjelmien [tehtävät](https://github.com/ilkkamtk/WebTekniik
 Valintarakenne [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/valintarakenteet.md) löytyvät **vrOhjelmat** kansiosta. 
 
 **Huom:** Tehtävään 1 on laitettu kuva kuhasta ([kuha.jpg](vrOhjelmat/kuha.jpg)). Kuvan pitäisi tulla näkyviin kun käyttäjä antaa tarpeeksi pitkän kuhan mitan. Jos mitta on liian lyhyt kuvaa ei näy.
+
+### Toistorakenteet
+Toistorakenne [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/toistorakenteet.md) löytyvät **trOhjelmat** kansiosta. 
