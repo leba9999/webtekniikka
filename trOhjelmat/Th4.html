@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 4</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 4</h3>
+
+<script>
+    'use strict';
+    let numberOfDieces = +prompt("Arpakuutioiden määrä:");
+    let outputNumber = 0;
+    for (let i = 0; i < numberOfDieces; i++){
+        let number = Math.floor(Math.random() * 6) + 1;
+        console.log("Dice: " + i + " Number: " + number);
+        outputNumber += number;
+    }
+    console.log("Sum of Dices: " + outputNumber);
+
+    document.write(`<br>Arpakuutioita: ${numberOfDieces}`);
+    document.write(`<br>Arpakuutioiden summa: ${outputNumber}`);
+
+</script>
+
+</body>
+</html>

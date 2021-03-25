@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 6</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 6</h3>
+
+<script>
+    'use strict';
+    let probability = 0;
+    let simulatedThrows = 10000;
+
+    // Kysytään noppien määrä ja varmistetaan ettei anneta arvoksi 0 tai pienempi kuin 0
+    let numberOfDieces = +prompt("Arpakuutioiden määrä:");
+    while (numberOfDieces <= 0) {
+        numberOfDieces = +prompt("Arpakuutioiden määrä: EI voi olla pienempi kuin 0 tai 0!");
+    }
+
+    // Kysytään noppien silmälukujen yhteen laskettua summa arvausta ja varmistetaan ettei anneta
+    // alle noppien pienimmän tai yli suurimman yhteisen arvon.
+    let valueOfDieces = +prompt("Arpakuutioiden yhteen laskettu silmälukumäärä:");
+    while (valueOfDieces <= numberOfDieces || valueOfDieces > numberOfDieces * 6) {
+        valueOfDieces = +prompt(`Arpakuutioiden yhteen laskettu silmälukumäärä: EI voi olla alle ${numberOfDieces} tai yli ${numberOfDieces * 6}`);
+    }
+
+    // Simuloidaan heittoja ja lasketaan kuinka moni arvotuista luvuista yhteen laskettuna on sama kuin
+    // käyttäjän arvaama arvo on
+    for (let i = 0; i < simulatedThrows; i++){
+        let number = 0;
+        for (let j = 0; j < numberOfDieces; j++){
+            number += Math.floor(Math.random() * 6) + 1;
+        }
+        if (valueOfDieces == number){
+            probability += 1;
+        }
+    }
+    // Lasketaan todennäköisyys prosenteina
+    probability = (probability*100) / simulatedThrows;
+
+    document.write(`Nopien määrä: ${numberOfDieces}<br>Halutun silmälukujen summa: ${valueOfDieces}<br>Todennäköisyys saada haluttu silmälukujen summa: ${probability}%`)
+    document.write(`<br><br>Simuloitujen heittojen määrä: ${simulatedThrows}`)
+    console.log("probability: " + probability + "%");
+
+</script>
+
+</body>
+</html>

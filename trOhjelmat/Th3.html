@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 3</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 3</h3>
+
+<script>
+    'use strict';
+    let startyear = +prompt("Anna aloitus vuosi");
+    let endyear = +prompt("Anna lopetus vuosi");
+
+    document.write(`<br>Kaikki karkaus vuodet vuosien ${startyear} - ${endyear} välillä:<br>`);
+    document.write(`<ul>`);
+    for(let i = startyear; i <= endyear; i++){
+        if ((i % 100 != 0 || i % 400 == 0) && i % 4 == 0) {
+            document.write(`<li>${i}</li>`);
+        }
+    }
+    document.write(`</ul>`);
+
+</script>
+
+</body>
+</html>

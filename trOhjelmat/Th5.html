@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 5</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 5</h3>
+
+<script>
+    'use strict';
+    let number = +prompt("Anna kokonaisluku:");
+
+    let primeNumber = true;
+    for (let i = 2; i < number; i++){
+        if (number % i == 0){
+            primeNumber = false;
+            console.log("Number " + number + " is divisible with " + i + " ");
+            document.write(`<br>${number} on jaollinen luvulla: ${i}`);
+        }
+    }
+    if (number % 1 == 0 && number % number == 0 && primeNumber){
+        console.log(number + " is prime number");
+        document.write(`${number} on jaollinen vain 1 ja itsellään.<br>Jolloin ${number} on alkuluku`);
+    }
+    else {
+        console.log(number + " is not prime number");
+        document.write(`<br>Jolloin luku: ${number} ei ole alkuluku`);
+    }
+
+</script>
+
+</body>
+</html>

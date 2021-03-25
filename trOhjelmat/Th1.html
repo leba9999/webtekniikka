@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 1</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 1</h3>
+
+<script>
+    'use strict';
+    let number = +prompt('Syötä kokonaisluku: ');
+    let multiplier = number;
+    for (let i = 1; i < number; i++){
+        multiplier = multiplier * i;
+        document.write(`${i}*`);
+    }
+    document.write(`${number}`);
+    document.write(`<br>=${multiplier}`);
+
+</script>
+
+</body>
+</html>

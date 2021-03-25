@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 2</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 2</h3>
+
+<script>
+    'use strict';
+    let number = 0;
+    do {
+        number = +prompt('Syötä kokonaisluku josta otetaan neliöjuuri: ');
+    } while (number < 0)
+
+    let numbersqrt = Math.sqrt(number);
+    document.write(`${number}`);
+    document.write(`=${numbersqrt}`);
+
+</script>
+
+</body>
+</html>
