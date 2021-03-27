@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 1</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 1</h3>
+
+<script>
+    'use strict';
+
+    let numbers = [];
+    do {
+        numbers.push(+prompt(`Anna kokonaisluku: ${numbers.length+1}/5`))
+    } while(numbers.length < 5)
+
+    console.log("given numbers in reverse order:");
+    document.write(`<br>Annetut numerot päinvastaisessa järjestyksessä:<br><ol>`);
+    for (let i = numbers.length-1; i >= 0; i--){
+        console.log("position: " + (i) + " number: " + numbers[i] + "");
+        document.write(`<li>${numbers[i]}</li>`);
+    }
+    document.write(`</ol>`);
+
+</script>
+
+</body>
+</html>

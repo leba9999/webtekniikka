@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 6</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 6</h3>
+
+<script>
+    'use strict';
+
+    let numbers = [];
+    do {
+        let value = +prompt(`Anna lukuja: (keskeytä syöttämällä 0)`);
+        if (value == 0){
+            break;
+        } else if (!isNaN(value)) {
+            numbers.push(value);
+        }
+    } while(true)
+    numbers.sort((a,b) => a-b);
+    console.log("given numbers:");
+    document.write(`<br>Annetut luvut:<br><ul>`);
+    for (let i = 0; i < numbers.length; i++){
+        console.log("position: " + (i) + " numbers: " + numbers[i] + "");
+        document.write(`<li>${numbers[i]}</li>`);
+    }
+    document.write(`</ul>`);
+    if (numbers.length % 2 == 0){
+        console.log("center position: " + ((numbers.length-2) / 2) + " center number: " + numbers[(numbers.length-2) / 2] + "");
+        console.log("center position: " + ((numbers.length) / 2) + " center number: " + numbers[(numbers.length) / 2] + "");
+        console.log(`Median: ${(numbers[(numbers.length-2) / 2] + numbers[(numbers.length) / 2]) / 2 }`);
+        document.write(`<br>Mediaani: ${(numbers[(numbers.length-2) / 2] + numbers[(numbers.length) / 2]) / 2 }`);
+    } else {
+        document.write(`<br>Mediaani: ${numbers[(numbers.length - 1 ) / 2]}`);
+    }
+
+</script>
+
+</body>
+</html>

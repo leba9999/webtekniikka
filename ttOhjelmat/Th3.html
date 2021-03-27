@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 3</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 3</h3>
+
+<script>
+    'use strict';
+
+    let names = [];
+    do {
+        names.push(prompt(`Anna koiran ${names.length + 1}/6 nimi:`));
+    } while(names.length < 6)
+
+    console.log("given dogs names:");
+    document.write(`<br>Koirien nimet käänteisessä aakkosjärjestyksessä:<br><ul>`);
+    names.sort();
+    names.reverse();
+    for (let i = 0; i < names.length; i++){
+        console.log("position: " + (i) + " names: " + names[i] + "");
+        document.write(`<li>${names[i]}</li>`);
+    }
+    document.write(`</ul>`);
+
+</script>
+
+</body>
+</html>
