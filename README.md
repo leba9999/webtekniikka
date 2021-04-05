@@ -12,5 +12,11 @@ Valintarakenne [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalin
 ### Toistorakenteet
 Toistorakenne [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/toistorakenteet.md) löytyvät **trOhjelmat** kansiosta. 
 
-### Taulokot
+### Taulukot
 Taulukko [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/taulukot.md) löytyvät **ttOhjelmat** kansiosta. 
+
+### Funktiot
+Funktio [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/funktiot.md) löytyvät **ftOhjelmat** kansiosta. 
+
+### DOM
+DOM [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/DOM.md) löytyvät **DOM** kansiosta. 
