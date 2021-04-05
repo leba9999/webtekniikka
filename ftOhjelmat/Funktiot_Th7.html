@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 7</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 7</h3>
+
+<script>
+    'use strict';
+
+    function parilliset(values) {
+        let table = [];
+        for (let i = 0; i < values.length; i++){
+            if (!(values[i] % 2)) {
+                table[table.length] = values[i];
+            }
+        }
+        return table;
+    }
+
+    let numbers = [];
+    let evennumbers = [];
+    for (let i = 0; i < 10; i++){
+        numbers[i] = Math.floor(Math.random() * 100);
+    }
+    evennumbers = parilliset(numbers);
+
+    console.log(`all numbers: ${numbers}`);
+    console.log(`evennumbers: ${evennumbers}`);
+
+    document.write(`<br>Kaikki numerot: ${numbers}<br>Parilliset numerot: ${evennumbers}`);
+
+</script>
+
+</body>
+</html>

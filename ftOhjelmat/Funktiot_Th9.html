@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 9</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 9</h3>
+
+<script>
+    'use strict';
+    const fibonacci = (value) => ((value <= 1 ) ? value : fibonacci(value-1) + fibonacci(value-2));
+
+    let value = +prompt(`Monennenko Fibonaccin numeron haluat:`);
+    while (isNaN(value)){
+        value = +prompt(`Monennenko Fibonaccin numeron haluat: (edellinen arvo ei kelvannut)`);
+    }
+    console.log(`numbers: ${fibonacci(value)}`);
+    document.write(`<br>Kaikki numerot: ${fibonacci(value)}`);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 4</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 4</h3>
+
+<script>
+    'use strict';
+    function suurin(lukutaulukko) {
+        return Math.max(...lukutaulukko);
+    }
+    let numbers = [];
+    for (let i = 0; i < 3; i++){
+        numbers[i] = +prompt(`Anna ${i + 1}. luku:`);
+        while (isNaN(numbers[i]))
+            numbers[i] = +prompt(`Anna ${i + 1}. luku: (edellinen luku ei kelpaa)`);
+    }
+
+    let maxNumber = suurin(numbers);
+
+    console.log(`numbers: ${numbers}`);
+    console.log(`biggest value: ${maxNumber}`);
+    document.write(`<br>Luvut: ${numbers} <br>Suurin luku: ${maxNumber}`);
+
+</script>
+
+</body>
+</html>

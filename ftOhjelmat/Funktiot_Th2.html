@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 2</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 2</h3>
+
+<script>
+    'use strict';
+    const muunnos = (gallons) => (gallons * 3.758);
+
+    let amount = +prompt(`Anna bensiinin määrä galloina:`);
+    while (isNaN(amount))
+        amount = +prompt(`Anna bensiinin määrä galloina: (edellinen arvo ei kelpaa)`);
+
+    let converted = muunnos(amount);
+
+    console.log(`gallons: ${amount}`);
+    console.log(`converted to liters: ${converted}`);
+    document.write(`<br>Bensiinin määrä:<br>galloina: ${amount} <br>litroina: ${converted}`);
+
+</script>
+
+</body>
+</html>

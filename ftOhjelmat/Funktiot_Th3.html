@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 3</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 3</h3>
+
+<script>
+    'use strict';
+    const absolute = (value) => ((value < 0 ) ? value * -1 : value);
+    function itseisarvo(luku) {
+        return Math.abs(luku);
+    }
+    let number = +prompt(`Anna luku josta annetaan itseisarvo:`);
+    while (isNaN(number))
+        number = +prompt(`Anna luku josta annetaan itseisarvo: (edellinen arvo ei kelpaa)`);
+
+    let muunnos = itseisarvo(number);
+    let converted = absolute(number);
+
+    console.log(`number: ${number}`);
+    console.log(`absolute value: ${converted}`);
+    document.write(`<br>Luku: ${number} <br>Luvun itseisarvo: ${muunnos}`);
+
+</script>
+
+</body>
+</html>

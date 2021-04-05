@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Th 5</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Javascript Tehtävä 5</h3>
+
+<script>
+    'use strict';
+    function liitä(names) {
+        let combination = "";
+        for (let i = 0; i < names.length; i++)
+            combination += names[i];
+        return combination;
+    }
+    let names = ["Viivi", "Saara", "Yrjö-Pekka", "Rolle"];
+    let combination  = liitä(names)
+
+    console.log(`names: ${names}`);
+    console.log(`combination: ${combination}`);
+    document.write(`<br>Nimet: ${names} <br>Yhdistetty: ${combination}`);
+
+</script>
+
+</body>
+</html>
