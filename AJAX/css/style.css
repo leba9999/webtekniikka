@@ -1,0 +1,177 @@
+
+/*Navigation style:*/
+body{
+    background-image: url(../img/newspaper.jpg);
+    background-color: rgb(255, 255, 255);
+    background-repeat: repeat;
+    background-size: 300px;
+    margin: 0px;
+}
+main{
+    margin: 10px auto;
+    width: 90%;
+    border: 2px solid rgb(47, 47, 47);
+    padding: 0px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 25px rgb(47, 47, 47);
+    background-color: rgba(231, 226, 210, 0.95);
+}
+article{
+    border: 2px solid rgb(47, 47, 47);
+    box-shadow: 0px 0px 25px rgb(47, 47, 47);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 2px;
+    margin: 1px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: calc(50% - 6px);
+    height: 512px;
+    overflow: hidden;
+}
+.infobox{
+    padding: 5px;
+    margin: 1px;
+    box-sizing: border-box;
+    width: 50%;
+}
+.infobox:after{
+    clear:both;
+}
+.divider{
+    margin: 5px;
+    border-top: 1px solid rgb(47, 47, 47);
+}
+h3{
+    margin-bottom: 0.5em;
+}
+p{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.textbox{
+    clear:both;
+    padding: 0px 5px;
+    margin: 1px;
+    box-sizing: border-box;
+    display: block;
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
+.clearfix{
+    clear:both;
+}
+.container{
+    display: flex;
+}
+img{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+nav{
+    width: 100%;
+    background-color: #2f2f2f;
+    background-repeat: repeat;
+    background-size: 100%;
+    background-position-y: 30%;
+    font-family: "Times New Roman", Times, serif;
+    border-bottom: 2px solid rgb(0, 25, 39);
+
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+nav::after{
+    clear: both;
+}
+.box{
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+    border-bottom: solid 1px black;
+    padding: 14px 16px;
+}
+.navul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.navli {
+    float: left;
+}
+
+.nava {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.nava:hover {
+    background-color: rgb(64, 64, 64);
+}
+/*Class:*/
+.active{
+    background-color: rgb(24, 24, 24);
+}
+.logo-div:hover {
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0.8;
+}
+.logo-div {
+    padding: 0px;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+#logo{
+    /*background-image: url(../img/Planet.png)*/
+    width: 42px;
+    overflow: hidden;
+}
+@media only screen and (max-width: 1000px) {
+    h2{margin: 0px;}
+    ul{margin: 0px;}
+    img{
+        display: block;
+        max-width: 225px;
+        max-height: 300px;
+    }
+    .divider{display: none;}
+    .container{flex-direction: column;}
+    .infobox{
+        width: 100%;
+        border: 1px solid rgb(47, 47, 47);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .infobox{display: none;}
+    img{
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+    article{height: auto;}
+}
+@media only screen and (min-width: 1500px) {
+    article{width: calc(33.33% - 6px);}
+}
+@media only screen and (min-width: 2400px) {
+    article{width: calc(25% - 6px);}
+}
+@media only screen and (min-width: 3400px) {
+    article{width: calc(20% - 6px);}
+}

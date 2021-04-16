@@ -9,6 +9,7 @@ for (let i = 0; i < button.length; i++)
     button[i].addEventListener("click", calculate);
 
 function calculate(evt){
+    
     let num1 = parseFloat(inputNum1.value);
     let num2 = parseFloat(inputNum2.value);
     let output = 0;

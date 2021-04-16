@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav>
+        <ul class="navul">
+            <li class="navli">
+                <a class="active nava" href="ajax.html">TV</a>
+            </li>
+            <li class="navli">
+                <a class="nava" href="about.html">About</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <div class="box">
+                <h2>TV-Sarjojen haku</h2>
+                <p>
+                    TV-sarjojen haku hakee tvmaze.com <a href="https://www.tvmaze.com/api#show-search">api</a> tietokannasta sarjojen tietoja ja
+                    näyttää ne tällä sivulla.
+                </p>
+            </div>
+            <div class="box">
+                <input id="hakuteksti" type="text" name="haku" placeholder="Sarjan nimi">
+                <button id="hakunappi">Hae</button>
+            </div>
+        </header>
+    </main>
+
+</body>
+
+<script src="js/ajax.js"></script>
+
+</html>
