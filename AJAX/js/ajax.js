@@ -134,10 +134,11 @@ function naytaVastaus(jsonData) {
             rating = "N/A";
         }
         try{
-            if (jsonData[i].show.genres == null || genres.length <= 0){
+            if (jsonData[i].show.genres == null || jsonData[i].show.genres.length <= 0){
                 throw "genre unknown!";
             }
             genres = jsonData[i].show.genres;
+
         }catch (error){
             console.error(error);
             genres[0] = "N/A";
