@@ -1,37 +1,52 @@
 'use strict';
 
+let showData = {
+    name: "",
+    image: "",
+    url: "",
+    summary: "",
+    status: "",
+    networkName: "",
+    networkcountrycode: "",
+    rating: "",
+    language: "",
+    premiered: "",
+    genres: [""]
+};
+
 const apiurl = "http://api.tvmaze.com/search/shows?q=";
 
-let apiKysely;
+const a = document.createElement("a");
+
+let mainElementti = document.querySelector("main");
+let hakuteksti = document.getElementById("hakuteksti");
 
 // Etsitään HTML-sivulta tarvittavat komponentit id:n avulla.
 const hakunappi = document.getElementById("hakunappi");
+
 if (hakunappi == null) {
     console.log("Debug: VOIH, hakunappia ei löytynyt...")
 } else {
     console.log("Debug: hakunappi löytyi!");
 }
 
-let mainElementti = document.querySelector("main");
-let hakuteksti = document.getElementById("hakuteksti");
 
 // lisätään napille tapahtumankäsittelijä
 
 hakunappi.addEventListener('click', {handleEvent:teeKysely});
 hakuteksti.addEventListener("keyup", {handleEvent: function(event) {
     if (event.keyCode === 13) {
-        teeKysely();
+        teeKysely(hakuteksti.value);
     }
 }});
-hakuteksti.value = "star";
-teeKysely();
-hakuteksti.value = "";
+
+teeKysely("star");
+
 // Funktio muodostaa hakukyselyn.
 // Lopuksi funktio kutsuu teeHaku() funktiota.
-function teeKysely() {
-
-    let hakusana = hakuteksti.value;
-    apiKysely = apiurl + hakusana + ";";
+function teeKysely(search) {
+    // puolipiste (;) jostain syystä mahdollistaa haun sanalle "the"
+    let apiKysely = apiurl + search + ";";
     console.log("Lähetettävä kysely: " + apiKysely);
     teeHaku(apiKysely);
 }
@@ -47,158 +62,177 @@ function teeHaku(apiKysely)  {
         naytaVastaus(json);				// siirrytään varsinaisen datan käsittelyyn.
     });
 }
-
+// Poistetaan main elementistä halutut lapset
+function removeChilds(child){
+    // haetaan documentista kaikki lapset. esim: article
+    const childs = document.querySelectorAll(child);
+    // poistetaan lapset
+    for (let i = 0; i< childs.length; i++) {
+        mainElementti.removeChild(childs[i]);
+    }
+}
 
 // Funktio hoitaa kyselystä saadun json-datan käsittelyn.
 // Funktio saa parametrina json-muodossa olevan datan.
 function naytaVastaus(jsonData) {
-    const childs = document.querySelectorAll("article");
-    for (let i = 0; i< childs.length; i++) {
-        mainElementti.removeChild(childs[i]);
-    }
+    // Etsitään turhat article childit ja poistetaan ne
+    removeChilds("article");
     for (let i = 0; i< jsonData.length; i++){
-        let image, url, summary, status, networkname, networkcountrycode, name, rating;
-        let language, premiered;
-        let genres = [];
-        try{
-            if (jsonData[i].show.image == null || jsonData[i].show.image.medium == null){
-                throw "image not found!";
-            }
-            image = jsonData[i].show.image.medium;
-        }catch (error){
-            console.error(error);
-            image = "img/notfound.jpg";
-        }
-        try{
-            if (jsonData[i].show.name == null){
-                throw "name not found!";
-            }
-            name = jsonData[i].show.name;
-        }catch (error){
-            console.error(error);
-            name = "unknown";
-        }
-        try{
-            if (jsonData[i].show.summary == null){
-                throw "summary not found!";
-            }
-            summary = jsonData[i].show.summary;
-        }catch (error){
-            console.error(error);
-            summary = "Not found!";
-        }
-        try{
-            if (jsonData[i].show.network == null){
-                throw "network not found!";
-            }
-            if (jsonData[i].show.network.name == null){
-                throw "network name not found!";
-            }
-            try{
-                if (jsonData[i].show.network.country == null){
-                    throw "country not found!";
-                }
-                if (jsonData[i].show.network.country.code == null){
-                    throw "country code not found!";
-                }
-                networkcountrycode = "(" + jsonData[i].show.network.country.code + ")";
-            }catch (error){
-                console.error(error);
-                networkcountrycode = "N/A";
-            }
-            networkname = jsonData[i].show.network.name;
-        }catch (error){
-            console.error(error);
-            networkname = "N/A";
-            networkcountrycode = "";
-        }
-        try{
-            if (jsonData[i].show.status == null){
-                throw "status unknown!";
-            }
-            status =jsonData[i].show.status;
-        }catch (error){
-            console.error(error);
-            status = "N/A";
-        }
-        try{
-            if (jsonData[i].show.rating == null){
-                throw "rating unknown!";
-            }
-            if (jsonData[i].show.rating.average == null){
-                throw "rating unknown!";
-            }
-            rating = jsonData[i].show.rating.average + "/" + 10;
-        }catch (error){
-            console.error(error);
-            rating = "N/A";
-        }
-        try{
-            if (jsonData[i].show.genres == null || jsonData[i].show.genres.length <= 0){
-                throw "genre unknown!";
-            }
-            genres = jsonData[i].show.genres;
+        // Etsitään kaikki mahdolliset virheet jsonDatasta
+        handleDataErrors(jsonData[i]);
 
-        }catch (error){
-            console.error(error);
-            genres[0] = "N/A";
-        }
-        const a = document.createElement("a");
-        try{
-            if (jsonData[i].show.officialSite == null){
-                throw "officialSite unknown!";
-            }
-            url = jsonData[i].show.officialSite;
-            a.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-        }catch (error){
-            console.error(error);
-            url = "N/A";
-            a.innerHTML = `<a>${url}</a>`;
-        }
-        try{
-            if (jsonData[i].show.language == null){
-                throw "language unknown!";
-            }
-            language = jsonData[i].show.language;
-        }catch (error){
-            console.error(error);
-            language = "N/A";
-        }
-        try{
-            if (jsonData[i].show.premiered == null){
-                throw "premiered unknown!";
-            }
-            premiered = jsonData[i].show.premiered;
-        }catch (error){
-            console.error(error);
-            premiered = "N/A";
-        }
         const article = document.createElement("article");
         article.innerHTML += `
                 <div class="container">
-                    <img src="${image}" alt="shows cover image">
+                    <img src="${showData.image}" alt="shows cover image">
                 <div class="infobox">
-                    <h2 >${name}</h2>
+                    <h2 >${showData.name}</h2>
                     <ul>
-                        <li>Kieli: ${language}</li>
-                        <li>Kanava: ${networkname} ${networkcountrycode}
-                        <li>Tila: ${status}</li>
-                        <li>Ensi-ilta: ${premiered}</li>
-                        <li>Genre: ${genres}</li>
+                        <li>Kieli: ${showData.language}</li>
+                        <li>Kanava: ${showData.networkname} ${showData.networkcountrycode}
+                        <li>Tila: ${showData.status}</li>
+                        <li>Ensi-ilta: ${showData.premiered}</li>
+                        <li>Genre: ${showData.genres}</li>
                         <li>Kotisivu: ${a.innerHTML}</li>
                         <br>
-                        <li>Arvio: ${rating}</li>
+                        <li>Arvio: ${showData.rating}</li>
                     </ul>
                 </div>
                 </div>
                     <div class="divider">
                         <h3>Kuvaus:</h3>
                         <div class="textbox">
-                            ${summary}
+                            ${showData.summary}
                         </div>
                     </div>
         `;
         mainElementti.appendChild(article);
+    }
+}
+// Etsitään kaikki mahdolliset onglema kohdat jsonDatasta
+// ja korvataan niiden tiedot toimivilla tiedoilla
+function handleDataErrors(jsonData){
+    // Show name
+    try{
+        if (jsonData.show.name == null){
+            throw "name not found!";
+        }
+        showData.name = jsonData.show.name;
+    }catch (error){
+        console.error(error);
+        showData.name = "unknown";
+    }
+    // Cover image
+    try{
+        if (jsonData.show.image == null || jsonData.show.image.medium == null){
+            throw "image not found!";
+        }
+        showData.image = jsonData.show.image.medium;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.image = "img/notfound.jpg";
+    }
+    // Show summary
+    try{
+        if (jsonData.show.summary == null){
+            throw "summary not found!";
+        }
+        showData.summary = jsonData.show.summary;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.summary = "Not found!";
+    }
+    // Show network ja country code
+    try{
+        if (jsonData.show.network == null){
+            throw "network not found!";
+        }
+        if (jsonData.show.network.name == null){
+            throw "network name not found!";
+        }
+        try{
+            if (jsonData.show.network.country == null){
+                throw "country not found!";
+            }
+            if (jsonData.show.network.country.code == null){
+                throw "country code not found!";
+            }
+            showData.networkcountrycode = "(" + jsonData.show.network.country.code + ")";
+        }catch (error){
+            console.error(showData.name + ": " + error);
+            showData.networkcountrycode = "N/A";
+        }
+        showData.networkname = jsonData.show.network.name;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.networkname = "N/A";
+        showData.networkcountrycode = "";
+    }
+    // Show status
+    try{
+        if (jsonData.show.status == null){
+            throw "status unknown!";
+        }
+        showData.status =jsonData.show.status;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.status = "N/A";
+    }
+    // Show rating
+    try{
+        if (jsonData.show.rating == null){
+            throw "rating unknown!";
+        }
+        if (jsonData.show.rating.average == null){
+            throw "rating unknown!";
+        }
+        showData.rating = jsonData.show.rating.average + "/" + 10;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.rating = "N/A";
+    }
+    // Show genres
+    try{
+        if (jsonData.show.genres == null || jsonData.show.genres.length <= 0){
+            throw "genre unknown!";
+        }
+        showData.genres = jsonData.show.genres;
+
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.genres[0] = "N/A";
+    }
+    // Show website
+    try{
+        if (jsonData.show.officialSite == null){
+            throw "officialSite unknown!";
+        }
+        showData.url = jsonData.show.officialSite;
+        a.innerHTML = `<a href="${showData.url}" target="_blank">${showData.url}</a>`;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.url = "N/A";
+        a.innerHTML = `<a>${showData.url}</a>`;
+    }
+    // Show language
+    try{
+        if (jsonData.show.language == null){
+            throw "language unknown!";
+        }
+        showData.language = jsonData.show.language;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.language = "N/A";
+    }
+    // Show premier
+    try{
+        if (jsonData.show.premiered == null){
+            throw "premiered unknown!";
+        }
+        showData.premiered = jsonData.show.premiered;
+    }catch (error){
+        console.error(showData.name + ": " + error);
+        showData.premiered = "N/A";
     }
 }
 
