@@ -20,3 +20,6 @@ Funktio [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia
 
 ### DOM
 DOM [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/DOM.md) löytyvät **DOM** kansiosta. 
+
+### Tapahtumankäsittely
+Tapahtumankäsittely [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/eventit.md) löytyvät **event-tehtavat** kansiosta. 
