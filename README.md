@@ -2,12 +2,8 @@
 ### Vuorovaikutteiset ohjelmat
 vuorovaikutteisten ohjelmien [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/vuorovaikutteiset_ohjelmat.md#harjoitustehtävät) löytyvät **vvOhjelmat** kansiosta. 
 
-**Huom:** Tehtävät 1 ja 2 on laitettu samaan ohjelmaan. Tehtävässä 3 ja 4 on käytetty canvasta, jolla piiretään käyttäjän syöttämien arvojen mukaan ympyrä tai suorakulmio.
-
 ### Valintarakenteet
 Valintarakenne [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/valintarakenteet.md#harjoitustehtävät) löytyvät **vrOhjelmat** kansiosta. 
-
-**Huom:** Tehtävään 1 on laitettu kuva kuhasta ([kuha.jpg](vrOhjelmat/kuha.jpg)). Kuvan pitäisi tulla näkyviin kun käyttäjä antaa tarpeeksi pitkän kuhan mitan. Jos mitta on liian lyhyt kuvaa ei näy.
 
 ### Toistorakenteet
 Toistorakenne [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/toistorakenteet.md#harjoitustehtävät) löytyvät **trOhjelmat** kansiosta. 
@@ -27,3 +23,8 @@ Tapahtumankäsittely [tehtävät](https://github.com/ilkkamtk/WebTekniikatJaDigi
 ### AJAX
 ajax koe [tehtävä](https://github.com/ilkkamtk/WebTekniikatJaDigitaalinenMedia/blob/master/JavaScript/ajax.md#harjoitustehtävä
 ) löytyy **AJAX** kansiosta. 
+<p>
+ <a href="https://www.metropolia.fi">
+<img src="https://www.metropolia.fi/themes/basic/images/metropolia.svg" width="258" alt="https://www.metropolia.fi" title="https://www.metropolia.fi">
+ </a>
+</p>
