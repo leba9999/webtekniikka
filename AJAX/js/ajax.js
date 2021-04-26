@@ -33,7 +33,9 @@ if (hakunappi == null) {
 
 // lisätään napille tapahtumankäsittelijä
 
-hakunappi.addEventListener('click', {handleEvent:teeKysely});
+hakunappi.addEventListener('click', {handleEvent: function(event) {
+        teeKysely(hakuteksti.value);
+    }});
 hakuteksti.addEventListener("keyup", {handleEvent: function(event) {
     if (event.keyCode === 13) {
         teeKysely(hakuteksti.value);
